@@ -1,6 +1,5 @@
 use std::env;
 use std::process;
-use std::fs;
 
 use crate::program::Program;
 
@@ -16,5 +15,9 @@ pub fn read_program() -> Program {
 
     let mut iter = args.iter();
     iter.next();
-    return Program::new(iter.next().unwrap()); //not very safe
+    let path = iter.next();
+    match path {
+        Some(path_arg) => return Program::new(path_arg),
+        None => process::exit(1),
+    }
 }

@@ -1,4 +1,4 @@
-use std::fs;
+use std::{fs, process};
 
 #[derive(Debug)]
 pub struct Program {
@@ -8,7 +8,16 @@ pub struct Program {
 impl Program {
     pub fn new(path: &String) -> Self {
         Self { 
-            data: fs::read(path).expect("Could not open file"),
+            data: {
+                let result = fs::read(path);
+                match result {
+                    Ok(valid_path) => valid_path,
+                    Err(_) => {
+                        println!("The given path does not exist, exiting...");
+                        process::exit(1)
+                    },
+                }  
+            },
         }
     }
 }
