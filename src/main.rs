@@ -2,6 +2,8 @@ mod input;
 mod program;
 
 fn main() {
-    let prog = input::read_program();
-    dbg!(prog.data);
+    let mut prog = input::read_program();
+    println!("{:?}", prog);
+    prog.run();
+    println!("{:?}", prog);
 }
