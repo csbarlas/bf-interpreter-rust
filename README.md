@@ -1,6 +1,8 @@
 # bf-interpreter-rust
 An implementation of a [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) programming language interpreter. The goal of the project was to run an application that prints "Hello, World!" to the terminal.
 
+![HelloWorld](./img/helloworld.png)
+
 ## Goals
 ✅ Minimum Viable Product: Run "Hello, World!"
 
